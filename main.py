@@ -20,7 +20,7 @@ def todaydate():
     return now
 
 
-@app.route('/index', methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
 def index():
     current_total_miles = 0
     number_of_rides = 0
