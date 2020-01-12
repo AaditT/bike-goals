@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        $( "#datepicker" ).datepicker();
+      } );
+  </script>
+  <script>
+
+    function clearForm() {
+       // Get the first form with the name
+       // Hopefully there is only one, but there are more, select the correct index
+       var frm = document.getElementsByName('myform')[0];
+       frm.reset();  // Reset
+       return false; // Prevent page refresh
+    }
+  </script>
+  </head>
+  <body>
+    <strong><h1> Add Miles </h1></strong>
+    <form action="/add_miles" name="myform" method="post" class="form" autocomplete="off">
+        Miles: <input style="width:50px;" type="number" min="0" step=".01" name="miles" value="{{
+          request.form.miles }}">
+          <p>Date: <input type="text" id="datepicker" name="date" value="{{request.form.date}}"></p>
+        <input type="submit" value="Add" onclick="clearForm" href="/">
+      </form>
+
+  </body>
+</html>
