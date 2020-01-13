@@ -37,7 +37,7 @@ def index():
     mileFile = open("miles.txt", 'r')
     for mile in mileFile.readlines():
         miles.append(str(mile.rstrip()))
-        current_total_miles += round(float(mile),2)
+        current_total_miles += float(mile)
         number_of_rides += 1
     mileFile.close()
     dateFile = open("dates.txt")
@@ -47,6 +47,7 @@ def index():
     current_days = dist_between_dates("1/1/2020",todaydate())
     current_mile_per_day = round((current_total_miles / current_days),2)
     required_mile_per_day = round((500/365),2)
+    current_total_miles = round(current_total_miles, 2)
     return render_template(
         'home.html',
         miles=miles,
