@@ -37,7 +37,7 @@ def index():
     mileFile = open("miles.txt", 'r')
     for mile in mileFile.readlines():
         miles.append(str(mile.rstrip()))
-        current_total_miles += float(mile)
+        current_total_miles += round(float(mile),2)
         number_of_rides += 1
     mileFile.close()
     dateFile = open("dates.txt")
