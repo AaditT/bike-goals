@@ -22,7 +22,7 @@ def todaydate():
 
 @app.route('/', methods=['GET','POST'])
 def index():
-    current_total_miles = 0
+    current_total_miles = 0.0
     number_of_rides = 0
     if request.method == 'POST':
         with open('miles.txt', 'a') as mile_file:
@@ -37,7 +37,8 @@ def index():
     mileFile = open("miles.txt", 'r')
     for mile in mileFile.readlines():
         miles.append(str(mile.rstrip()))
-        current_total_miles += float(mile)
+        latest_mile = (miles[-1])
+        current_total_miles += float(latest_mile)
         number_of_rides += 1
     mileFile.close()
     dateFile = open("dates.txt")
