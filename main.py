@@ -45,10 +45,15 @@ def index():
     for date in dateFile.readlines():
         dates.append(str(date.rstrip()))
     dateFile.close()
+    goal = 500
     current_days = dist_between_dates("1/1/2020",todaydate())
     current_mile_per_day = round((current_total_miles / current_days),2)
-    required_mile_per_day = round((500/365),2)
+    required_mile_per_day = round((goal/365),2)
     current_total_miles = round(current_total_miles, 2)
+    miles_left = round((goal - current_total_miles),2)
+    days_left = 365 - current_days
+    dynamic_rate = round((miles_left/days_left),2)
+
     return render_template(
         'home.html',
         miles=miles,
@@ -58,6 +63,9 @@ def index():
         current_days=current_days,
         current_mile_per_day=current_mile_per_day,
         required_mile_per_day=required_mile_per_day,
+        miles_left = miles_left,
+        days_left = days_left,
+        dynamic_rate = dynamic_rate,
     )
 
 """

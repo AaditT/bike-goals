@@ -83,6 +83,9 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+canvas {
+  width: 80%;
+}
 
   </style>
   <script>
@@ -200,8 +203,6 @@
 <br>
 <br>
 <br>
-<br>
-<br>
 
 <style>
 table {
@@ -212,27 +213,45 @@ table, td, th {
   border: 1px solid black;
 }
 th{
-  width: 18%
+  width: 22.5%
 }
 table {
   width: 90%;
+}
+.highlighted-cell {
+  background-color: #ffff00;
 }
 </style>
 <center>
 <table>
   <tr>
     <th>Current Total Miles</th>
-    <th>Number of Rides</th>
-    <th>Number of Days</th>
+    <th>Number of Days this Year</th>
     <th>Current Miles per Day Average</th>
-    <th>Required Miles per Day Average</th>
+    <th>Goal for this Year (Miles)</th>
   </tr>
   <tr>
     <td><center><font size="9">{{current_total_miles}}</font></center></td>
-    <td><center><font size="9">{{number_of_rides}}</font></center></td>
     <td><center><font size="9">{{current_days}}</font></center></td>
-    <td><center><font size="9">{{current_mile_per_day}}</font></center></td>
-    <td><center><font size="9">{{required_mile_per_day}}</font></center></td>
+    <td bgcolor="lightblue"><center><font size="9">{{current_mile_per_day}}</font></center></td>
+    <td><center><font size="9">500</font></center></td>
+
+  </tr>
+</table>
+
+<br><br>
+<table>
+  <tr>
+    <th>How Many Miles Left</th>
+    <th>How Many Days Left this Year</th>
+    <th>Static Required Rate (Miles/Day)</th>
+    <th>Dynamic Required Rate (Miles/Day)</th>
+  </tr>
+  <tr>
+    <td><center><font size="9">{{miles_left}}</font></center></td>
+    <td><center><font size="9">{{days_left}}</font></center></td>
+    <td bgcolor="lightblue"><center><font size="9">{{required_mile_per_day}}</font></center></td>
+    <td><center><font size="9">{{dynamic_rate}}</font></center></td>
 
   </tr>
 </table>
